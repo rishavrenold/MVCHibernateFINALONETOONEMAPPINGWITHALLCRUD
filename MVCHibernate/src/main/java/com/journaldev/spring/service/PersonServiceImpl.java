@@ -21,7 +21,14 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	@Transactional
 	public void addPerson(Person p) {
-		this.personDAO.addPerson(p);
+		if((p.getProduct()=="" || p.getProduct()==null )&& (p.getCurrency()==""||p.getCurrency()==null)
+				&& p.getPrice()==0 && p.getInventory()==0 && (p.getLocation()==""||p.getLocation()==null) && (p.getCategory()==""||p.getCategory()==null) )
+		{
+			listPersons();
+		}
+		else {
+			this.personDAO.addPerson(p);
+		}
 	}
 
 	@Override

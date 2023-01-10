@@ -4,7 +4,7 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Person Page</title>
+	<title>Product Page</title>
 
 	<script  src=
     "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
