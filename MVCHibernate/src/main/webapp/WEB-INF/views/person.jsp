@@ -41,102 +41,10 @@
 
 </head>
 <body>
-<h1>
-	Add a Product
-</h1>
-
-<c:url var="action" value="/product/add" ></c:url>
-<form:form action="${action}" commandName="person">
-<table>
-	<tr>
-		<td>
-			<form:label path="product">
-				<spring:message text="product"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="product" />
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<form:label path="product_description">
-				<spring:message text="product_description"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="product_description" />
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<form:label path="category">
-				<spring:message text="category"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="category" />
-		</td>
-	</tr>
-	<tr>
-    		<td>
-    			<form:label path="price">
-    				<spring:message text="price"/>
-    			</form:label>
-    		</td>
-    		<td>
-    			<form:input path="price" />
-    		</td>
-    	</tr>
-    	<tr>
-        		<td>
-        			<form:label path="currency">
-        				<spring:message text="currency"/>
-        			</form:label>
-        		</td>
-        		<td>
-        			<form:input path="currency" />
-        		</td>
-        	</tr>
-        	<tr>
-            		<td>
-            			<form:label path="inventory">
-            				<spring:message text="inventory"/>
-            			</form:label>
-            		</td>
-            		<td>
-            			<form:input path="inventory" />
-            		</td>
-            	</tr>
-            	<tr>
-                     <td>
-                        <form:label path="location">
-                        <spring:message text="location"/>
-                        </form:label>
-                        </td>
-                        <td>
-                        <form:input path="location" />
-                     </td>
-                </tr>
-	<tr>
-		<td colspan="2">
-				<c:if test="${!empty person.product}">
-                		  <input type="submit"
-                					value="update"/>
-                			</c:if>
-                			<c:if test="${empty person.product}">
-                				<input type="submit"
-                					value="add" />
-                			</c:if>
-	</tr>
-</table>
-</form:form>
-<br>
-
-
 <h3>Product List</h3>
 <c:if test="${!empty listPersons}">
-	<table id="page" class="table table-striped sortable">
+<button><a href="addProduct">Add Product</a></button>
+	<table border="5px" id="page" class="table table-striped sortable">
 	<thead>
 	<tr>
     		<th width="80"  id="sortable1">Product</th>
@@ -275,7 +183,8 @@ function Pager(tableName, itemsPerPage) {
          var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
          this.asc = !this.asc
          if (!this.asc){rows = rows.reverse()}
-         for (var i = 0; i < rows.length; i++){table.append(rows[i])}
+         for (var i = 0; i < rows.length; i++){
+         table.append(rows[i])}
          }
      })
 
@@ -285,7 +194,8 @@ function Pager(tableName, itemsPerPage) {
              return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
          }
      }
-     function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
+     function getCellValue(row, index){
+      return $(row).children('td').eq(index).text() }
      })
      </script>
 

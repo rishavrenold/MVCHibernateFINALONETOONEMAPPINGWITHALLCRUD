@@ -29,6 +29,14 @@ public class PersonController {
 		this.personService = ps;
 	}
 
+	@RequestMapping(value="addProduct",method = RequestMethod.GET)
+	public String addProduct(Model model) {
+		model.addAttribute("person",new Person());
+		model.addAttribute("value","Add");
+		return "productadd";
+	}
+
+
 	@RequestMapping(value = "/product", method = RequestMethod.GET)
 	public String getPerson(Model model) {
 		model.addAttribute("person", new Person());
@@ -36,7 +44,7 @@ public class PersonController {
 		return "person";
 	}
 	@Transactional
-	@RequestMapping(value= "/product/add", method = RequestMethod.POST)
+	@RequestMapping(value= "addPerson", method = RequestMethod.POST)
 	public String addPerson(@ModelAttribute("person") Person p) {
 		List<Person> al= this.personService.listPersons();
 		Person person=null;
@@ -80,8 +88,8 @@ public class PersonController {
 	@RequestMapping("/edit/{id}")
     public String editPerson(@PathVariable("id") int id, Model model){
         model.addAttribute("person", this.personService.getPersonById(id));
-        model.addAttribute("listPersons", this.personService.listPersons());
-        return "person";
+		model.addAttribute("value","Update");
+        return "productadd";
     }
 
 

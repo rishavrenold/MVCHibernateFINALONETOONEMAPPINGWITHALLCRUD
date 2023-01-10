@@ -1,21 +1,11 @@
 package com.journaldev.spring.dao;
-
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import com.journaldev.spring.model.*;
-import org.hibernate.Criteria;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -132,7 +122,6 @@ public class PersonDAOImpl implements PersonDAO {
 			product=addProduct(p);
 			return product;
 		}
-		System.out.println("LINE 155 PRODUCT JO UPDATE HONE AYA HAI:-"+product.getProduct_code());
 		//Case1:jaab product mei jaab price and stock mei change hoga taab
 		//Case2: jaab product fields mei change
 		product.setProduct_code(p.getProduct());
@@ -192,8 +181,6 @@ public class PersonDAOImpl implements PersonDAO {
 				person=pr;
 			}
 		}
-		System.out.println("PRODUCT KON SA AA RAHA HAI "+product.getProduct_code()+" "+product.getStock().getLocation()+" "+product.getPrice().getCurrency());
-		System.out.println("PERSON KON SA AA RAHA HAI "+person);
 		if(person==null)
 		{
 			person=new Person();
